@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-xs-12">
+       <button class="btn btn-success" (click)="onNewActivity()">Add activity</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-myactivities-item
+        *ngFor="let activity of activities; let i = index;"
+        [activity]="activity"
+        [index]="activity._id">
+      </app-myactivities-item>
+    </div>
+  </div>
+  
+
+  

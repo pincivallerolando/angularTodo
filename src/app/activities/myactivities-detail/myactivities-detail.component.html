@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-xs-12">
+      <h3>{{ activity?._id }}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>{{ activity?.description }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>{{ activity?.status }}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group">
+        <button class="btn btn-primary" style="cursor: pointer;"(click)="onEditActivity()">Edit Activity</button>
+        <button class="btn btn-danger" style="cursor: pointer;" (click)="onDeleteActivity()">Delete Activity</button>
+      </div>
+    </div>
+  </div>
+
+  
