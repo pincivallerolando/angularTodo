@@ -9,6 +9,9 @@ const baseUrl = 'http://localhost:3080/api/activities/myactivities';
 @Injectable({
   providedIn: 'root'
 })
+
+//servizio per le activities
+
 export class ActivityService {
 
   isChanged = new Subject<Activity[]>();
@@ -37,16 +40,22 @@ export class ActivityService {
 
 
 
-  //other methods for subject
+  //altri metodi per la gestione dei cambiamenti attraverso Subject
 
+  //metodo per settare la variabile di istanza activities
   setActivities(activites: Activity[]){
     this.activities = activites;
     this.isChanged.next(activites.slice());
   }
+
+  //metodo per l'aggiunta di una nuova activity a quelle già presenti
   addActivity(activity: Activity){
     this.activities.push(activity);
     this.isChanged.next(this.activities.slice());
   }
+
+
+  //metodo per l'update di una activity già presente, la ricerco attraverso l'id univoco
   updateActivity(id: string, description: string, status: string){
     this.activities.forEach(element => {
       if(element._id.localeCompare(id)==0){
@@ -56,6 +65,8 @@ export class ActivityService {
     });
     this.isChanged.next(this.activities.slice());
   }
+
+  //metodo per l'eliminazione dell'activity, la ricerco attraverso l'id univoco
   deleteActivity(id: string){
     this.activities.forEach((element, index) => {
       if(element._id.localeCompare(id)==0){

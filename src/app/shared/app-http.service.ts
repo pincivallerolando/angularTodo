@@ -6,7 +6,8 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 
-//not working
+//interceptor sulle request http per il token: inizialmente non riuscivo a settare il token per tutte le richieste
+//funzionava fino al login, poi ho ricercato il perchè e ho capito che serviva intercettare le richieste e settare il token
 
 
 @Injectable()

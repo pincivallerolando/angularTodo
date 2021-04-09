@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'x-auth-token';
 const USER_KEY = 'auth-user';
 
+
+
+//service per la gestione del token con signout, savetoken, gettoken, saveuser, getuser
+
 @Injectable({
   providedIn: 'root'
 })

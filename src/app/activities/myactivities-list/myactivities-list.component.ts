@@ -12,6 +12,9 @@ import { ActivityService } from '../activity.service';
 })
 export class MyactivitiesListComponent implements OnInit {
 
+//ho usato le subsctiption e il service condiviso per poter visualizzare le modifiche effettuate su un activity
+//in quanto le componenti che devono comunicare non hanno una relazione padre-figlio
+
   activities: Activity[];
   userID: any;
   subscription: Subscription;
@@ -21,8 +24,9 @@ export class MyactivitiesListComponent implements OnInit {
       
     }
 
+  //inizializzo l'array delle activities, utilizzando subscription per "intercettare" i cambiamenti
+  //e il metodo getActivities del service
   ngOnInit(){
-
     this.subscription = this.activityService.isChanged.subscribe(
       (activities: Activity[]) => {
       this.activities = activities;
@@ -41,6 +45,7 @@ export class MyactivitiesListComponent implements OnInit {
       ); 
   } 
   
+  //onclick su add activity
  onNewActivity(){
   this.router.navigate(['new'], {relativeTo: this.route});
 } 

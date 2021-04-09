@@ -18,10 +18,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(){
   
   }
+
+  //onclick logout
   onLogout() {
     this.authService.logout();
     this.router.navigate(['home']);
   }
+
+  //utilizzo del metodo isAuthenticated per il versioning dell'header in base all'autenticazione effettuata
   isAuthenticated() {
     return this.authService.isAuthenticated();
   }

@@ -7,6 +7,7 @@ import { Activity } from '../../activity.model';
   styleUrls: ['./myactivities-item.component.css']
 })
 export class MyactivitiesItemComponent implements OnInit {
+  //ho necessità di avere activity e index
   @Input() activity: Activity;
   @Input() index: string;
 

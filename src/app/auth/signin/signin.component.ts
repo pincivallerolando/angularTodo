@@ -19,17 +19,23 @@ export class SigninComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,private authService: AuthService, private token: TokenStorageService ) { }
 
+
+  //verifico che sia già presente il token
   ngOnInit(){
   if (this.token.getToken()) {
       this.isLoggedIn = true;
     }
   }
+
+  //submit del form
   onSignin(form: NgForm){
     const email = form.value.email;
     const password = form.value.password;
     this.authService.loginUser(email, password).subscribe(
      (response: any)=> {
       
+        //setto le proprietà che mi interessano per il tokens
+              
         this.token.saveToken(response.token);
         this.token.saveUser(response);
         this.isLoginFailed = false;

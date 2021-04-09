@@ -9,6 +9,7 @@ const appRoutes: Routes = [
   {path:'', redirectTo:'/home', pathMatch:'full'},
   {path:'home', component: HomeComponent},
   {path:'user', component: UserComponent, canActivate:[AuthGuard]},
+  //lazy module
   {path:'myactivities', loadChildren: () => import ('./activities/activity.module').then(m => m.ActivityModule), canActivate: [AuthGuard]},
  
 ];

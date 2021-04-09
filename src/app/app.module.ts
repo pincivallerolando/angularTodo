@@ -11,7 +11,6 @@ import { AuthService } from './auth/auth.service';
 import { AppHttpService } from './shared/app-http.service';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { CoreModule } from './core/core.module';
-import { DropdownDirective } from './shared/dropdown.directive';
 
 
 

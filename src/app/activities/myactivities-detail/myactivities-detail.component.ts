@@ -5,6 +5,8 @@ import { User } from 'src/app/user/user/user.model';
 import { Activity } from '../activity.model';
 import { ActivityService } from '../activity.service';
 
+/* component per la visualizzazione dei dettagli della singola activity */ 
+
 @Component({
   selector: 'app-myactivities-detail',
   templateUrl: './myactivities-detail.component.html',
@@ -17,23 +19,25 @@ export class MyactivitiesDetailComponent implements OnInit {
   
 
   constructor(private route: ActivatedRoute,
-              private router: Router, private activityService: ActivityService, private token: TokenStorageService) { }
+              private router: Router, private activityService: ActivityService) { }
 
+
+
+//prendo l'id dai params e richiamo il metodo getActivity
   ngOnInit(){
-
     this.route.params
     .subscribe(
       (params: Params) => {
         this.id = params['id'];
         this.getActivity();
-
      }
     );
 
   }
 
- getActivity(){
 
+//utilizzo il metodo getSingleActivity dal service per le activities e gli passo l' id
+ getActivity(){
     this.activityService.getSingleActivity(this.id).subscribe(
       (response)=>{
         this.activity=response;
@@ -43,10 +47,14 @@ export class MyactivitiesDetailComponent implements OnInit {
 
   }
 
+  //onclick sul bottone edit
   onEditActivity() {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
+
+  //onclick sul bottone delete
+  //vado a richiamare il metodo delete del service sull'id dell'activity selezionata
   onDeleteActivity() {
     
     this.activityService.delete(this.id).subscribe(

@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'todo';
- 
-  //loadedFeature = 'activities';
   
   constructor(){}
 
@@ -16,8 +14,5 @@ export class AppComponent implements OnInit {
 
   }
 
-  /* onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
-   */
+  
 }

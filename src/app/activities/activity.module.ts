@@ -8,7 +8,6 @@ import { MyactivitiesEditComponent } from "./myactivities-edit/myactivities-edit
 import { MyactivitiesComponent } from "./myactivities.component";
 import { MyactivitiesItemComponent } from './myactivities-list/myactivities-item/myactivities-item.component';
 import { MyactivitiesListComponent } from './myactivities-list/myactivities-list.component';
-import { DropdownDirective } from "../shared/dropdown.directive";
 
 
 
@@ -18,8 +17,8 @@ import { DropdownDirective } from "../shared/dropdown.directive";
       MyactivitiesListComponent,
       MyactivitiesEditComponent,
       MyactivitiesDetailComponent,
-      MyactivitiesItemComponent,
-      DropdownDirective
+      MyactivitiesItemComponent
+      
  
     ],
     imports: [

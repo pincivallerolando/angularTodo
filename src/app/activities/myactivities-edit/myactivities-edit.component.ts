@@ -22,8 +22,10 @@ export class MyactivitiesEditComponent implements OnInit {
     private router: Router,
      private token: TokenStorageService) { }
 
-  ngOnInit(){
 
+
+//prendo l'id dai params e richiamo il metodo initForm
+  ngOnInit(){
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -33,6 +35,8 @@ export class MyactivitiesEditComponent implements OnInit {
         }
       );
   }
+
+  //inizializzo il form per la modifica con i campi dell'activity
   private initForm() {
     let activityDescription = '';
     let activityStatus = '';
@@ -55,6 +59,10 @@ export class MyactivitiesEditComponent implements OnInit {
     });
   }
 
+
+//onsubmit del form, se è in editmode (ci sarà l'id in editMode in caso di modalità edit) chiamo il metodo update del service
+//in fase di response richiamo updateActivity che serve per poter visualizzare le modifiche apportate all'interno della lista di activity
+//stessa cosa per il caso in cui non siamo in editmode ma quindi stiamo aggiungendo una nuova activity
   onSubmit() {
    
     this.user = this.token.getUser();
